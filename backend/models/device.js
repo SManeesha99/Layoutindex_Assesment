@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 const {Schema, model} = mongoose;
 
 const deviceSchema = new Schema({
@@ -27,4 +27,4 @@ const deviceSchema = new Schema({
     },
 });
 
-export default model("Device",deviceSchema);
+module.exports = model("Device",deviceSchema);

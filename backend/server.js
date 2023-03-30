@@ -27,6 +27,14 @@ connection.once("open",()=>{
     console.log("MongoDB Connected 🍀");
 });
 
+
+//location routes
+const locationRouter = require("./routes/location");
+app.use("/api/location",locationRouter);
+
+
+
+
 app.listen(PORT,()=>{
     console.log(`Server is up and running on port ${PORT} ✨`);
 })
