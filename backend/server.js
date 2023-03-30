@@ -32,6 +32,10 @@ connection.once("open",()=>{
 const locationRouter = require("./routes/location");
 app.use("/api/location",locationRouter);
 
+//device routes
+const deviceRouter = require("./routes/device");
+app.use("/api/device",deviceRouter);
+
 
 
 

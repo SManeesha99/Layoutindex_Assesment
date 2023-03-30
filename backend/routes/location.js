@@ -1,5 +1,5 @@
 const express =  require("express");
-const locationRouter = express.Router();;
+const locationRouter = express.Router();
 const locationController = require("../controllers/location");
 
 
@@ -7,7 +7,7 @@ const locationController = require("../controllers/location");
 locationRouter.post("/add", locationController.addLocation);
 
 //get all locations
-locationRouter.get("/location", locationController.getAllLocation);
+locationRouter.get("/locations", locationController.getAllLocation);
 
 //get location by id
 locationRouter.get("/location/:id", locationController.getLocationById);
