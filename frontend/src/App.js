@@ -12,6 +12,7 @@ import AllDevice from './components/views/Device/AllDevice';
 
 //location
 import  AddLocation  from './components/views/Location/AddLocation';
+import LocationList from './components/views/Location/LocationList';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={<AllDevice />} />
           <Route path='/deviceAdd' element={<AddDevice />} />
           <Route path='/locationAdd' element={<AddLocation />} />
+          <Route path='/locationList' element={<LocationList />} />
         </Routes>  
       </Router>
       <Footer />
