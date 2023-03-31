@@ -61,7 +61,7 @@ const AddDevice = () => {
         console.log(res);
         alert("Device added successfully");
 
-        window.location.href = "/deviceAdd";
+        window.location.href = "/";
       } catch (err) {
         console.log(err.response.data.message);
       }
@@ -184,7 +184,6 @@ const AddDevice = () => {
 
 
                                   <input
-                                  selected
                                   id='status'
                                     type="radio"
                                     value="active"
