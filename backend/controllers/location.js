@@ -4,7 +4,7 @@ const locationController={
     //add location to the database
     addLocation: async (req,res)=>{
         try{
-            const {name, address, phone, devices} = req.body;
+            const {name, address, phone, devices, locationID} = req.body;
             // Check if location already exists
             const existingName = await Location.findOne({name:name});
             if(existingName)

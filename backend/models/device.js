@@ -12,13 +12,13 @@ const deviceSchema = new Schema({
         enum:['pos','kiosk','signage'],
         required:true,
     },
-    location:{
+    locationName:{
         type:String,
         required:true,
     },
     photo:{
         type:String,
-        // required:true,
+        required:true,
     },
     status:{
         type:String,
