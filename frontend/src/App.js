@@ -7,6 +7,7 @@ import Footer from './components/views/Footer';
 
 //device
 import AddDevice from './components/views/Device/AddDevice';
+import AllDevice from './components/views/Device/AllDevice';
 
 
 //location
@@ -18,6 +19,7 @@ function App() {
       <Navbar />
       <Router>
         <Routes>
+          <Route path='/' element={<AllDevice />} />
           <Route path='/deviceAdd' element={<AddDevice />} />
           <Route path='/locationAdd' element={<AddLocation />} />
         </Routes>  
