@@ -4,7 +4,7 @@ import Select from "react-select";
 
 const AddDevice = () => {
     
-    const [photo, setPhoto] = React.useState("");
+    // const [photo, setPhoto] = React.useState("");
     const [locations, setLocations] = React.useState([]);
     const [locationArray, setLocationArray] = React.useState([]);
     const [type, setType] = React.useState("");
@@ -127,7 +127,7 @@ const AddDevice = () => {
                   <form>
                       <div class="mb-3">
                           <label class="form-label">Serial Number</label>
-                          <input type="text" class="form-control" id='serialNo' onChange={(e) => onChangeInput(e)}/>
+                          <input type="text" class="form-control" id='serialNo' onChange={(e) => onChangeInput(e)} required/>
                       </div>
                       <div class="mb-3">
                           <label class="form-label">Select Device Type</label>
@@ -137,17 +137,16 @@ const AddDevice = () => {
                                 <option value={options.value}>{options.label}</option>
                               ))}
                           </select> */}
-                          <Select
-                  className=""
-                  options={[
-                    { value: "pos", label: "POS" },
-      { value: "kiosk", label: "kiosk" },
-      { value: "signage", label: "signage" },
-                  ]}
-                  onChange={(e) => {
-                    setType(e.value);
-                  }}
-                  />
+                          <Select className=""
+                                      options={[
+                                        { value: "pos", label: "POS" },
+                                        { value: "kiosk", label: "kiosk" },
+                                        { value: "signage", label: "signage" },
+                                      ]}
+                                      onChange={(e) => {
+                                        setType(e.value);
+                                      }}
+                                      />
                       </div>  
                       <div class="mb-3">
                           <label class="form-label">Select Location</label>

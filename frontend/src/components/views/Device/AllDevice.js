@@ -59,14 +59,14 @@ const AllDevice = () => {
 
         <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Devices List</h3>
             <br />
-            {/* <div className="container">
+            <div className="container">
                 <form class="form-inline my-2 my-lg-0">
                     <div className="row ">
                         <input class="form-control mr-sm-2 inputSearch" type="text" placeholder='Enter the location or device name ' onChange={(e) => setSearchTerm(e.target.value)} />&nbsp;
                         <a type="a" class="btn btn-primary inputSearch" href="#">add device</a>
                     </div>
                 </form>
-            </div> */}
+            </div>
             <br/>
             <div class="row row-cols-1 row-cols-md-5 g-5 " style={{ margin:'10px' }}>
                 {filteredDevices.map((devices)=>
