@@ -81,7 +81,7 @@ const AllDevice = () => {
                                 <p class="card-text">{devices.status}</p>
                                 <div className='row'>
                                     <div className='btn-group'>
-                                        <a href='#' class="btn btn-success">Edit</a>&nbsp;
+                                        <a href={`/deviceEdit/${devices._id}`} class="btn btn-success">Edit</a>&nbsp;
                                         <button type="button" class="btn btn-danger" onClick={()=>deleteDevice(devices._id)}>Delete</button>
                                     </div>
 

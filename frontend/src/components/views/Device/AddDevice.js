@@ -74,21 +74,6 @@ const AddDevice = () => {
     ];
     
     const handleImageChange = async e => {
-      // const data = new FormData()
-      //   data.append("file", photo)
-      //   data.append("upload_preset","surge-assesment")
-      //   data.append("cloud_name","drao60sj6")
-      //   fetch("https://api.cloudinary.com/v1_1/drao60sj6/image/upload",{
-      //       method:"post",
-      //       body:data
-      //   })
-      //   .then(res=>res.json())
-      //   .then(data=>{
-      //       setUrl(data.url)
-      //   }) 
-      //   .catch(err=>{
-      //       console.log(err)
-      //  })
       e.preventDefault()
       try {
           const file = e.target.files[0]
