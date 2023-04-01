@@ -8,6 +8,7 @@ import Footer from './components/views/Footer';
 //device
 import AddDevice from './components/views/Device/AddDevice';
 import AllDevice from './components/views/Device/AllDevice';
+import EditDevice from './components/views/Device/EditDevice';
 
 
 //location
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path='/' element={<AllDevice />} />
           <Route path='/deviceAdd' element={<AddDevice />} />
+          <Route path='/deviceEdit/:id' element={<EditDevice />} />
           <Route path='/locationAdd' element={<AddLocation />} />
           <Route path='/locationList' element={<LocationList />} />
         </Routes>  
