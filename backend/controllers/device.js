@@ -110,18 +110,47 @@ const deviceController={
         }
     },
 
-    //delete device
-    deleteDevice : async (req,res)=>{
+    // //delete device
+    // deleteDevice : async (req,res)=>{
+    //     try{
+    //         const id = req.params.id;
+    //         await Device.findByIdAndDelete({_id:id});
+    //         res.json({
+    //             msg:"Device deleted successfully",
+    //         });
+    //     } catch(err){
+    //         return res.status(500).json({message:err.message});
+    //     }
+    // },
+
+    //get devices by location
+    deviceDelete: async (req, res) =>{
         try{
             const id = req.params.id;
-            await Device.findByIdAndDelete({_id:id});
-            res.json({
-                msg:"Device deleted successfully",
+
+            const device = await Device.findOne({_id:id});
+            const existingLocation = await Location.findOne({
+                name:device.locationName,
             });
-        } catch(err){
+            await Location.updateOne(
+                {_id: existingLocation._id},
+                {$pull:{devices:device.type}}
+            );
+            await Device.findOneAndDelete({_id:id});
+            if(res){
+                res.json({
+                    msg:"Device deleted successfully",
+                });
+                await Location.updateOne(
+                    {_id:existingLocation._id},
+                    {$pull:{devices:device.type}}
+                );
+            }
+
+        }catch(err){
             return res.status(500).json({message:err.message});
         }
-    },
+    }
 
 
 };

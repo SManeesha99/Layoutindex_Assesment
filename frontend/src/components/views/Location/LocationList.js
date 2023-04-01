@@ -56,11 +56,12 @@ const LocationList = () => {
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">Location ID</th>
                         <th scope="col">Location Name</th>
                         <th scope="col">Address</th>
                         <th scope="col">Mobile Number</th>
                         <th scope="col">Devices</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>

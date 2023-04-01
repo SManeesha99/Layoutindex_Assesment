@@ -42,6 +42,16 @@ const AllDevice = () => {
         );
     });
 
+    const deleteDevice = async (DeviceId) => {
+        try{
+            const res = await axios.delete(`http://localhost:8090/api/device/delete/${DeviceId}`);
+            alert(res.data.msg);
+            console.log(res.data.msg);
+        }catch(err){
+            console.log(err.data.msg);
+        }
+    }
+
     
 
   return (
@@ -72,7 +82,7 @@ const AllDevice = () => {
                                 <div className='row'>
                                     <div className='btn-group'>
                                         <a href='#' class="btn btn-success">Edit</a>&nbsp;
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-danger" onClick={()=>deleteDevice(devices._id)}>Delete</button>
                                     </div>
 
                                 </div>
