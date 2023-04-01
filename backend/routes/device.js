@@ -16,8 +16,10 @@ deviceRouter.get("/device/:id", deviceController.getDeviceById);
 deviceRouter.put("/update/:id", deviceController.updateDevice);
 
 //delete device
-deviceRouter.delete("/delete/:id", deviceController.deleteDevice);
+// deviceRouter.delete("/delete/:id", deviceController.deleteDevice);
 
+//removr from location
+deviceRouter.delete("/delete/:id", deviceController.deviceDelete);
 
 
 module.exports = deviceRouter;
