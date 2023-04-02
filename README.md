@@ -29,13 +29,13 @@ This project developed using MERN Technology
 clone this repo to your system
 
 ```
-git clone https://github.com/ShehanEraliyanage/betalaunch_assignment_employment_management_system.git
+git clone https://github.com/SManeesha99/Layoutindex_Assesment.git
 ```
 
 Then go to root folder
 
 ```
-cd betalaunch_assignment_employment_management_system
+cd Layoutindex_Assesment
 ```
 
 Then You need to go frontend and backend folders using two separate teminals as below
