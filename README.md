@@ -7,11 +7,6 @@ Location Management System
 - Backend : Node js
 - IDE: VS code
 
-> Other tools
-- SonarQube
-- Selenium
-- Azure Boads
-
 ## Prerequisites
 1. VS code should be installed.
 2. node has been installed to the machine.
