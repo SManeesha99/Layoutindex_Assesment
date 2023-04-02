@@ -55,33 +55,44 @@ const AllDevice = () => {
     
 
   return (
-    <div>
+    <div className='container'>
 
-        <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Devices List</h3>
+        <h2 className="mb-4 pb-2 pb-md-0 mb-md-5">Devices List</h2>
             <br />
             <div className="container">
                 <form class="form-inline my-2 my-lg-0">
                     <div className="row ">
                         <input class="form-control mr-sm-2 inputSearch" type="text" placeholder='Enter the location or device name ' onChange={(e) => setSearchTerm(e.target.value)} />&nbsp;
-                        <a type="a" class="btn btn-primary inputSearch" href="#">add device</a>
+                        <a type="a" class="btn btn-primary inputSearch" href="/deviceAdd">add device</a>
                     </div>
                 </form>
             </div>
             <br/>
-            <div class="row row-cols-1 row-cols-md-5 g-5 " style={{ margin:'10px' }}>
+            <div class="row row-cols-1 row-cols-md-4 g-5 " style={{ margin:'10px' }}>
                 {filteredDevices.map((devices)=>
                     <div class="col">
                         <div class="card">
                         <img class="card-img-top" src={devices.photo} alt="Card image cap" />
                         <div class="card-body">
                             
-                            <h5 class="card-title">{devices.serialNo}</h5>
-                                <p class="card-text">{devices.type}</p>
-                                <p class="card-text">{devices.locationName}</p>
-                                <p class="card-text">{devices.status}</p>
-                                <div className='row'>
+                            <h5 class="card-title">Serial Number : {devices.serialNo}</h5>
+                                <p class="card-text">Device Type : {devices.type}</p>
+                                <p class="card-text">Location : {devices.locationName}</p>
+                                <div className='col'>
+                                    
+                                        {devices.status === "active" ? (
+                                            <div className="d-flex align-items-center">
+                                            Status :  Active  <div className='badge bg-success me-2' style={{ display:"inline-block" , padding:"10px 10px"  , margin:"2px 3px 2px 10px", borderRadius:"20px" } } ></div>  
+                                            </div>
+                                        ) : (
+                                            <div className="d-flex align-items-center">
+                                            Status : Inactive <div className="badge bg-danger me-2" style={{ display:"inline-block" , padding:"10px 10px" , margin:"2px 3px 2px 10px", borderRadius:"20px" } }></div> 
+                                            </div>
+                                        )}
+                                </div>
+                                <div className='row mt-3'>
                                     <div className='btn-group'>
-                                        <a href={`/deviceEdit/${devices._id}`} class="btn btn-success">Edit</a>&nbsp;
+                                        {/* <a href={`/deviceEdit/${devices._id}`} class="btn btn-success">Edit</a>&nbsp; */}
                                         <button type="button" class="btn btn-danger" onClick={()=>deleteDevice(devices._id)}>Delete</button>
                                     </div>
 
