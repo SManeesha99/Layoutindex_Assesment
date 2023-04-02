@@ -20,7 +20,8 @@
 //         locationId: "",
 //       });
 
-//       const{serialNo,type,photo,locationName,status,locationId}=devicePlayLoad
+//       const{serialNo,type,photo,locationName,status}=devicePlayLoad
+
 //       const [editDevicePlayLoad, setEditDevicePlayLoad] = React.useState({
 //         serialN0: "",
 //         type: "",

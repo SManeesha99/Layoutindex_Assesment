@@ -15,16 +15,16 @@ const Navbar = () => {
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
                    
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/">Home</a>
+                    <a className="nav-link active" aria-current="page" href="/">All Devices</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/deviceAdd">Device</a>
+                    <a className="nav-link active" aria-current="page" href="/deviceAdd">Add Device</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/locationAdd">Location</a>
+                    <a className="nav-link active" aria-current="page" href="/locationAdd">Add Location</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="locationList">Location List</a>
+                    <a className="nav-link active" aria-current="page" href="locationList">All Location</a>
                     </li>
                     
                 </ul>
