@@ -14,6 +14,7 @@ import EditDevice from './components/views/Device/EditDevice';
 //location
 import  AddLocation  from './components/views/Location/AddLocation';
 import LocationList from './components/views/Location/LocationList';
+import EditLocation from './components/views/Location/EditLocation';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/deviceEdit/:id' element={<EditDevice />} />
           <Route path='/locationAdd' element={<AddLocation />} />
           <Route path='/locationList' element={<LocationList />} />
+          <Route path='/locationEdit/:id' element={<EditLocation />} />
         </Routes>  
       </Router>
       <Footer />
