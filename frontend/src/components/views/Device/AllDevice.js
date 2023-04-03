@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+const Swal = require('sweetalert2');
 
 
 const AllDevice = () => {
@@ -44,9 +45,43 @@ const AllDevice = () => {
 
     const deleteDevice = async (DeviceId) => {
         try{
-            const res = await axios.delete(`http://localhost:8090/api/device/delete/${DeviceId}`);
-            alert(res.data.msg);
-            console.log(res.data.msg);
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',  
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result)=>{
+                if(result.value===true){
+                    const res = axios.delete(`http://localhost:8090/api/device/delete/${DeviceId}`).then((res)=>{
+                        if(res){
+                            Swal.fire({
+                                title: "Success!",
+                                text: "Device deleted successfully",
+                                icon: 'success',
+                                timer: 2000,
+                                showCancelButton: false,
+                            }).then(()=>{
+                                window.location.href = "/";
+                            })
+                        }else{
+                            Swal.fire({
+                                title: "Error!",
+                                text: "Device not deleted",
+                                icon: 'error',
+                                timer: 2000,
+                                showCancelButton: false,
+                            })
+                        }
+                    })
+                }
+            })
+            
+
+            // console.log(res.data.msg);
+            // window.location.reload();
         }catch(err){
             console.log(err.data.msg);
         }
@@ -92,7 +127,7 @@ const AllDevice = () => {
                                 </div>
                                 <div className='row mt-3'>
                                     <div className='btn-group'>
-                                        {/* <a href={`/deviceEdit/${devices._id}`} class="btn btn-success">Edit</a>&nbsp; */}
+                                        <a href={`/deviceEdit/${devices._id}`} class="btn btn-success">Edit</a>&nbsp;
                                         <button type="button" class="btn btn-danger" onClick={()=>deleteDevice(devices._id)}>Delete</button>
                                     </div>
 

@@ -44,7 +44,7 @@ const LocationList = () => {
     
 
   return (
-    <div>
+    <div className='container'>
 
         <h3 className="mb-4 pb-2 pb-md-0 mb-md-5">Location List</h3>
 
@@ -73,7 +73,7 @@ const LocationList = () => {
                         <p>{location.devices.filter(device=>device==='signage').length} Signage</p>
                     <div className='row'>
                          <div className='btn-group'>
-                             <a href='#' class="btn btn-success">Edit Location Details</a>&nbsp;
+                             <a href={`locationEdit/${location._id}`} class="btn btn-success" >Edit Location Details</a>&nbsp;
                          </div>
 
                      </div>

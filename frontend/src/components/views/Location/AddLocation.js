@@ -1,9 +1,10 @@
 import axios from 'axios';
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import React from 'react'
 
 const AddLocation = () => {
     
+
     const [locationPlayyload, setLocationPlayyload] = React.useState({
         name: '',
         address: '',
@@ -20,18 +21,35 @@ const AddLocation = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await axios.post("http://localhost:8090/api/location/add", locationPlayyload);
-            console.log(res)
-            alert("Location added successfully");
-
-            window.location.href = "/deviceAdd";
+          console.log(locationPlayyload)
+            const res = await axios.post("http://localhost:8090/api/location/add", locationPlayyload).then((res)=>{
+                console.log(res);
+                Swal.fire({
+                    title: "Success!",
+                    text: "Location added successfully",
+                    icon: 'success',
+                    timer: 2000,
+                    button: false,
+                    
+                }).then(()=>{
+                    window.location.href = "/locationList";
+                })
+            })
+            // console.log(res)
+            // alert("Location added successfully");
 
         }catch(err){
-            console.log(err);
+            Swal.fire({
+                title: "Error!",
+                text: err.response.data.msg,
+                icon: 'warning',
+                timer: 2000,
+                button: false,
+            })
         }
     };
   return (
-    <div>
+    <div className='container-sm'>
     <section className="vh-100 gradient-custom">
         <div className="container py-5 h-100">
           <div className="row justify-content-center align-items-center h-100">

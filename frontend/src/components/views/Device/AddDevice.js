@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
 import Select from "react-select";
+const Swal = require('sweetalert2');
 
 const AddDevice = () => {
     
-    // const [photo, setPhoto] = React.useState("");
+    const [photo, setPhoto] = React.useState("");
     const [locations, setLocations] = React.useState([]);
     const [locationArray, setLocationArray] = React.useState([]);
     const [type, setType] = React.useState("");
@@ -59,11 +60,23 @@ const AddDevice = () => {
         console.log(devicePalyload)
         const res = await axios.post("http://localhost:8090/api/device/add",devicePalyload);
         console.log(res);
-        alert("Device added successfully");
-
-        window.location.href = "/";
+        Swal.fire({
+          title: "Success!",
+          text: "Device added successfully",
+          icon: 'success',
+          timer: 2000,
+          button: false,
+        }).then(()=>{
+          window.location.href = "/";
+        })       
       } catch (err) {
-        console.log(err.response.data.message);
+        Swal.fire({
+          title: "Error!",
+          text: err.response.data.msg,
+          icon: 'warning',
+          timer: 2000,
+          button: false,
+        })
       }
     };
 
@@ -106,7 +119,6 @@ const AddDevice = () => {
             ...devicePalyload,
             photo: res.data.url,
           });
-          alert(res.data.message);
         } catch (err) {
           console.log(err.response.data.msg);
           
@@ -137,7 +149,7 @@ const AddDevice = () => {
                                 <option value={options.value}>{options.label}</option>
                               ))}
                           </select> */}
-                          <Select className=""
+                          <Select className="" name="type" 
                                       options={[
                                         { value: "pos", label: "POS" },
                                         { value: "kiosk", label: "kiosk" },
@@ -165,6 +177,18 @@ const AddDevice = () => {
                           <label for="formFile" class="form-label">Status</label>
                           <div className="row ">
                                 <div >
+                                <select class="form-select"  name="status" id='status' onChange={onChangeInput}>
+                                    <option value="active" selected>Active</option>
+                                    <option value="inactive">Inctive</option>
+                                </select>
+
+                                </div>
+                              </div>
+                      </div>
+                      {/* <div class="mb-3">
+                          <label for="formFile" class="form-label">Status</label>
+                          <div className="row ">
+                                <div >
 
 
                                   <input
@@ -176,7 +200,6 @@ const AddDevice = () => {
                                   />&nbsp; Active
 
                                 </div>
-
                                 <div >
 
 
@@ -189,7 +212,7 @@ const AddDevice = () => {
                                   /> &nbsp; Inactive
                                 </div>
                               </div>
-                      </div>
+                      </div> */}
                       <button type="submit" class="btn btn-primary" onClick={(e)=> onSubmit(e)}>Submit</button>
                   </form>
                 </div>
